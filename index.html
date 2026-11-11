@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Charlotte Tennis Revolution | Youth Tennis Programs in Charlotte, NC</title>
+<meta name="description" content="Charlotte Tennis Revolution offers fun, engaging youth tennis lessons for elementary and middle school students in the Charlotte, NC area. Find a program at your school.">
+<meta property="og:title" content="Charlotte Tennis Revolution">
+<meta property="og:description" content="Fun. Fundamentals. Confidence. One rally at a time. Youth tennis programs for ages 5–14.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0B1F3A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { navy: '#0B1F3A', court: '#C9281E', optic: '#FFD23F', sky: '#2A7BC8' },
+  fontFamily: { display: ['"Barlow Condensed"', 'Impact', 'sans-serif'], sans: ['Outfit', 'system-ui', 'sans-serif'] }
+}}};
+</script>
+<style>
+:root{--bg:#fff;--alt:#FFF6E5;--fg:#0B1F3A;--muted:#47566b;--card:#fff;--line:#f0dfc2;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0a1626;--alt:#0e1d33;--fg:#f3f7f5;--muted:#aebccc;--card:#12233d;--line:#23395a}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0a1626;--alt:#0e1d33;--fg:#f3f7f5;--muted:#aebccc;--card:#12233d;--line:#23395a}
+html{scroll-behavior:smooth;scroll-padding-top:calc(84px + env(safe-area-inset-top,0px))}
+body{background:var(--bg);color:var(--fg);font-family:Outfit,system-ui,sans-serif}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+.ball{animation:bounce 2.4s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.ball{animation:none}}
+a:focus-visible,button:focus-visible{outline:3px solid #C8F169;outline-offset:3px}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/htm@3.1.1/dist/htm.umd.js"></script>
+<script>
+const { useState, useEffect, useRef } = React;
+const html = htm.bind(React.createElement);
+
+/* ============ EDIT HERE: site content ============ */
+const LOGO = 'data:image/webp;base64,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';
+const REGISTER_URL = 'https://tinyurl.com/CltTennisRev';
+const EMAIL = 'clttennisrevolution@gmail.com';
+const INSTAGRAM = 'https://www.instagram.com/clttennisrevolution/';
+
+const PROGRAMS = [
+  { name: 'Red Ball', ages: 'Ages 5–10', level: 'Beginner players', color: '#E5484D',
+    text: 'A playful first step into tennis. Smaller courts and lower-compression balls help young players rally sooner and build coordination, footwork, and confidence.' },
+  { name: 'Green/Yellow Ball', ages: 'Ages 11–14', level: 'Beginner players', color: '#C8F169',
+    text: 'For older beginners ready to grow their game. Players build strokes, learn to play points, and move toward full-court tennis in a supportive group.' },
+  // Add another program by copying an object above.
+];
+
+const FEATURES = [
+  ['Experienced coaches', 'Coaches who know how to teach and motivate young players.'],
+  ['Age-appropriate instruction', 'Lessons matched to each age group and skill level.'],
+  ['Small group instruction', 'More attention and more rallies for every player.'],
+  ['Fun games & competitions', 'Friendly challenges that keep kids excited to come back.'],
+  ['Skill development & confidence', 'Strong fundamentals that build confidence on and off the court.'],
+  ['School & community programs', 'Tennis brought to schools and community organizations.'],
+];
+
+// Add locations as you grow: { name: 'Location name', type: 'School' | 'Community', area: 'City, NC', note: 'optional' }
+const LOCATIONS = [
+  { name: 'Ballantyne Elementary School', type: 'School', area: 'Charlotte, NC' },
+  { name: 'Elon Park Elementary School', type: 'School', area: 'Charlotte, NC' },
+  { name: 'Rea Farms STEAM Academy', type: 'School', area: 'Charlotte, NC' },
+];
+
+// Add events: { title, date: 'Month D, YYYY', place, type: 'USTA Junior Tournament', link: 'https://...' }
+const EVENTS = [];
+const EVENT_TYPES = [
+  ['USTA Junior Tournaments', 'Sanctioned play that gives players a chance to compete and grow.'],
+  ['Tennis Competitions', 'Friendly, program-based competitions that make learning fun.'],
+  ['Community Events', 'Tennis days and events that bring families together.'],
+];
+/* ================================================== */
+
+const NAV = [['about','About'],['programs','Programs'],['why','Why CTR'],['locations','Locations'],['events','Events'],['contact','Contact']];
+
+function Reveal({ children, className = '' }) {
+  const ref = useRef(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!('IntersectionObserver' in window)) { el.classList.add('in'); return; }
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { el.classList.add('in'); io.disconnect(); } }, { threshold: 0.12 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return html`<div ref=${ref} className=${'reveal ' + className}>${children}</div>`;
+}
+
+function Button({ href, variant = 'primary', children, external, className = '' }) {
+  const styles = {
+    primary: 'bg-optic text-navy hover:bg-white',
+    outline: 'border-2 border-white/80 text-white hover:bg-white hover:text-navy',
+    green: 'bg-court text-white hover:bg-navy',
+  }[variant];
+  const ext = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+  return html`<a href=${href} ...${ext} className=${'inline-flex items-center justify-center rounded-full px-7 py-3.5 font-semibold transition-colors text-center ' + styles + ' ' + className}>${children}</a>`;
+}
+
+function Section({ id, alt, title, kicker, children }) {
+  return html`<section id=${id} className="py-20 md:py-28" style=${{ background: alt ? 'var(--alt)' : 'var(--bg)' }}>
+    <div className="mx-auto max-w-6xl px-5">
+      <${Reveal}>
+        ${kicker && html`<p className="mb-2 font-semibold uppercase tracking-widest text-court" style=${{ color: 'var(--muted)' }}>${kicker}</p>`}
+        <h2 className="font-display text-4xl font-extrabold uppercase leading-none md:text-6xl">${title}</h2>
+      <//>
+      <div className="mt-10">${children}</div>
+    </div>
+  </section>`;
+}
+
+function Header() {
+  const [open, setOpen] = useState(false);
+  return html`<header className="fixed inset-x-0 top-0 z-50 bg-navy/95 backdrop-blur" style=${{ paddingTop: 'env(safe-area-inset-top,0px)' }}>
+    <div className="mx-auto flex h-[72px] max-w-6xl items-center justify-between px-5">
+      <a href="#top" className="flex items-center gap-3 font-display text-lg font-extrabold uppercase leading-none tracking-wide text-white sm:text-xl"><img src=${LOGO} width="48" height="48" alt="Charlotte Tennis Revolution logo" className="h-12 w-12 rounded-full ring-2 ring-white/80"/><span>Charlotte Tennis <span className="text-optic">Revolution</span></span></a>
+      <nav aria-label="Main" className="hidden items-center gap-6 md:flex">
+        ${NAV.map(([id, l]) => html`<a key=${id} href=${'#' + id} className="text-sm font-medium text-white/85 hover:text-optic">${l}</a>`)}
+        <${Button} href=${REGISTER_URL} external className="!py-2 !px-5 text-sm">Register<//>
+      </nav>
+      <button className="text-white md:hidden" aria-label="Menu" aria-expanded=${open} onClick=${() => setOpen(!open)}>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d=${open ? 'M5 5l14 14M19 5L5 19' : 'M4 7h16M4 12h16M4 17h16'}/></svg>
+      </button>
+    </div>
+    ${open && html`<nav aria-label="Mobile" className="flex flex-col gap-1 bg-navy px-5 pb-5 md:hidden">
+      ${NAV.map(([id, l]) => html`<a key=${id} href=${'#' + id} onClick=${() => setOpen(false)} className="py-2.5 text-lg text-white/90">${l}</a>`)}
+      <${Button} href=${REGISTER_URL} external className="mt-2">Register Now<//>
+    </nav>`}
+  </header>`;
+}
+
+function CourtArt() {
+  return html`<svg aria-hidden="true" viewBox="0 0 400 520" className="absolute inset-0 h-full w-full opacity-20" preserveAspectRatio="xMidYMid slice">
+    <g fill="none" stroke="#fff" strokeWidth="3"><rect x="40" y="40" width="320" height="440"/><rect x="85" y="40" width="230" height="440"/><path d="M40 260h320M200 150v220M85 150h230M85 370h230"/></g></svg>`;
+}
+
+function Hero() {
+  return html`<section id="top" className="relative flex min-h-[100svh] items-center overflow-hidden bg-navy pt-28 pb-16" style=${{ background: 'radial-gradient(120% 90% at 85% 10%, #3E92DD 0%, #2A7BC8 30%, #164E87 65%, #0B1F3A 100%)' }}>
+    <${CourtArt} />
+    <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 md:grid-cols-[1.4fr_1fr]">
+      <div>
+        <p className="mb-4 inline-block rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium text-optic">Youth tennis · Charlotte, NC</p>
+        <h1 className="font-display text-5xl font-extrabold uppercase leading-[0.95] text-white sm:text-6xl md:text-8xl">Building the Next Generation of <span className="text-optic">Tennis Players</span></h1>
+        <p className="mt-6 max-w-xl text-lg text-white/90 md:text-xl">Fun. Fundamentals. Confidence. One Rally at a Time.</p>
+        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <${Button} href=${REGISTER_URL} external>Find a Tennis Program at your school<//>
+          <${Button} href="#programs" variant="outline">Explore Our Programs<//>
+        </div>
+      </div>
+      <div className="hidden justify-center md:flex" aria-hidden="true">
+        <div className="ball h-56 w-56 rounded-full bg-court shadow-2xl" style=${{ boxShadow: 'inset -14px -14px 30px rgba(0,0,0,.18), 0 40px 60px rgba(0,0,0,.35)' }}>
+          <svg viewBox="0 0 100 100" className="h-full w-full"><path d="M12 20C35 38 35 62 12 80M88 20C65 38 65 62 88 80" fill="none" stroke="#FFD23F" strokeWidth="4" strokeLinecap="round"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+function About() {
+  return html`<${Section} id="about" kicker="About us" title="Tennis for every kid">
+    <${Reveal} className="grid gap-8 md:grid-cols-2">
+      <p className="text-xl leading-relaxed">Charlotte Tennis Revolution is a youth tennis program in Charlotte, North Carolina, offering fun, engaging lessons for elementary and middle school students.</p>
+      <p className="text-lg leading-relaxed" style=${{ color: 'var(--muted)' }}>Our mission is to make tennis accessible, fun, and exciting for more children in our North Carolina and South Carolina communities, while helping every player develop fundamental tennis skills and the confidence that comes with them.</p>
+    <//>
+  <//>`;
+}
+
+function ProgramCard({ p }) {
+  return html`<article className="flex h-full flex-col overflow-hidden rounded-3xl border shadow-sm transition-transform hover:-translate-y-1" style=${{ background: 'var(--card)', borderColor: 'var(--line)' }}>
+    <div className="h-3" style=${{ background: p.color }}></div>
+    <div className="flex flex-1 flex-col p-7">
+      <div className="mb-4 flex items-center gap-3"><span className="h-8 w-8 rounded-full" style=${{ background: p.color }} aria-hidden="true"></span><span className="text-sm font-semibold" style=${{ color: 'var(--muted)' }}>${p.ages}</span></div>
+      <h3 className="font-display text-3xl font-extrabold uppercase">${p.name}</h3>
+      <p className="mt-1 font-medium text-court" style=${{ color: 'var(--muted)' }}>${p.level}</p>
+      <p className="mt-4 flex-1 leading-relaxed" style=${{ color: 'var(--muted)' }}>${p.text}</p>
+      <${Button} href=${REGISTER_URL} external variant="green" className="mt-6">Register<//>
+    </div>
+  </article>`;
+}
+
+function Programs() {
+  return html`<${Section} id="programs" alt kicker="Our programs" title="Find the right fit">
+    <div className="grid gap-6 md:grid-cols-2">
+      ${PROGRAMS.map((p) => html`<${Reveal} key=${p.name}><${ProgramCard} p=${p} /><//>`)}
+    </div>
+  <//>`;
+}
+
+function Why() {
+  return html`<${Section} id="why" kicker="Why choose us" title="Built around the player">
+    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      ${FEATURES.map(([t, d], i) => html`<${Reveal} key=${t}>
+        <div className="h-full rounded-2xl border p-6" style=${{ background: 'var(--card)', borderColor: 'var(--line)' }}>
+          <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-full bg-court font-display text-xl font-extrabold text-white" aria-hidden="true">${i + 1}</div>
+          <h3 className="text-xl font-semibold">${t}</h3>
+          <p className="mt-2" style=${{ color: 'var(--muted)' }}>${d}</p>
+        </div><//>`)}
+    </div>
+  <//>`;
+}
+
+function Locations() {
+  return html`<${Section} id="locations" alt kicker="Where we play" title="Schools & community courts">
+    ${LOCATIONS.length
+      ? html`<div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">${LOCATIONS.map((l) => html`<${Reveal} key=${l.name}>
+          <div className="h-full rounded-2xl border p-6" style=${{ background: 'var(--card)', borderColor: 'var(--line)' }}>
+            <span className="rounded-full bg-court px-3 py-1 text-xs font-semibold text-white">${l.type}</span>
+            <h3 className="mt-3 text-xl font-semibold">${l.name}</h3>
+            <p style=${{ color: 'var(--muted)' }}>${l.area}</p>
+            ${l.note && html`<p className="mt-2 text-sm" style=${{ color: 'var(--muted)' }}>${l.note}</p>`}
+          </div><//>`)}</div>`
+      : html`<${Reveal}><div className="rounded-3xl border-2 border-dashed p-10 text-center" style=${{ borderColor: 'var(--line)' }}>
+          <h3 className="font-display text-3xl font-extrabold uppercase">More locations coming soon</h3>
+          <p className="mx-auto mt-3 max-w-xl" style=${{ color: 'var(--muted)' }}>We’re adding school and community programs. Use the registration form to find a program near you, or reach out and we’ll help.</p>
+          <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row"><${Button} href=${REGISTER_URL} external variant="green">Find a program<//><${Button} href=${'mailto:' + EMAIL} variant="green" className="!bg-transparent !text-[var(--fg)] border-2 !border-[var(--line)]">Email us<//></div>
+        </div><//>`}
+  <//>`;
+}
+
+function Events() {
+  return html`<${Section} id="events" kicker="Tournaments & events" title="Time to compete">
+    ${EVENTS.length && html`<div className="mb-8 grid gap-5 md:grid-cols-2">${EVENTS.map((e) => html`<article key=${e.title} className="rounded-2xl border p-6" style=${{ background: 'var(--card)', borderColor: 'var(--line)' }}>
+      <p className="text-sm font-semibold text-court" style=${{ color: 'var(--muted)' }}>${e.type} · ${e.date}</p><h3 className="text-xl font-semibold">${e.title}</h3><p style=${{ color: 'var(--muted)' }}>${e.place}</p>
+      ${e.link && html`<a className="mt-2 inline-block font-semibold underline" href=${e.link}>Details</a>`}</article>`)}</div>`}
+    <div className="grid gap-5 md:grid-cols-3">
+      ${EVENT_TYPES.map(([t, d]) => html`<${Reveal} key=${t}><div className="h-full rounded-2xl bg-navy p-7 text-white"><h3 className="font-display text-2xl font-extrabold uppercase text-optic">${t}</h3><p className="mt-3 text-white/85">${d}</p></div><//>`)}
+    </div>
+    ${!EVENTS.length && html`<p className="mt-6" style=${{ color: 'var(--muted)' }}>Upcoming dates will be posted here. Follow us on <a className="font-semibold underline" href=${INSTAGRAM} target="_blank" rel="noopener noreferrer">Instagram</a> for updates.</p>`}
+  <//>`;
+}
+
+function CTA() {
+  return html`<section className="bg-court py-20 text-center md:py-28">
+    <${Reveal} className="mx-auto max-w-3xl px-5">
+      <h2 className="font-display text-5xl font-extrabold uppercase leading-none text-white md:text-7xl">Ready to Start Your Tennis Journey?</h2>
+      <div className="mt-9"><${Button} href=${REGISTER_URL} external className="text-lg">Register Now<//></div>
+    <//>
+  </section>`;
+}
+
+function Contact() {
+  return html`<footer id="contact" className="bg-navy py-16 text-white">
+    <div className="mx-auto max-w-6xl px-5">
+      <h2 className="font-display text-4xl font-extrabold uppercase md:text-5xl">Get in touch</h2>
+      <div className="mt-6 flex flex-col gap-4 sm:flex-row">
+        <${Button} href=${'mailto:' + EMAIL}>${EMAIL}<//>
+        <${Button} href=${INSTAGRAM} external variant="outline">Instagram @clttennisrevolution<//>
+      </div>
+      <p className="mt-12 text-sm text-white/70">© ${new Date().getFullYear()} Charlotte Tennis Revolution · Charlotte, North Carolina</p>
+    </div>
+  </footer>`;
+}
+
+function App() {
+  return html`<main><${Header} /><${Hero} /><${About} /><${Programs} /><${Why} /><${Locations} /><${Events} /><${CTA} /><${Contact} /></main>`;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(html`<${App} />`);
+</script>
+</body>
+</html>
